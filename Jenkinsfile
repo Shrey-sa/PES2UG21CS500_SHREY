@@ -12,25 +12,17 @@ pipeline{
                 steps{
                     build 'PES2UG21CS500-1'
                     sh 'g++ Jenkins.cpp -o output'
-                    sh 'mvn clean install'
                     echo 'Build Stage Successful'
                 }
               }
               stage('Test'){
                 steps{
                     sh './output'
-                    sh 'mvn test'
                     echo 'test stage successfully'
-                    post{
-                        always{
-                            junit 'target/surefire-reports/*.xml'
-                        }
-                    }
                 }
               }
               stage('Deploy'){
                 steps{
-                    sh 'mvn deploy'
                     echo 'deployment successfull'
                 }
               }

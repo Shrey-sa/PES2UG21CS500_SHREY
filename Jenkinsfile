@@ -18,7 +18,6 @@ pipeline{
               stage('Test'){
                 steps{
                     sh './output'
-                    feefefewgg
                     echo 'test stage successfully'
                 }
               }
